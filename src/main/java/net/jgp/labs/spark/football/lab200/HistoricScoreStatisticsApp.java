@@ -113,6 +113,7 @@ public class HistoricScoreStatisticsApp {
     goalsDf = goalsDf.orderBy(goalsDf.col("sum(score)").desc());
     goalsDf.show(5);
 
+    System.out.println("Attendance per year");
     Dataset<Row> attendanceDf = combinedDf.groupBy("Year").sum("Attendance");
     attendanceDf = attendanceDf
         .orderBy(attendanceDf.col("Year"))

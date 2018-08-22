@@ -4,6 +4,11 @@ Playing with soccer datasets to illustrate some of Spark's features in Java.
 
 If you are in interested in using Spark with Java, consider the **Spark with Java** book by Jean Georges Perrin and published by Manning. Find out more about the book at: [https://www.manning.com/books/spark-with-java](https://www.manning.com/books/spark-with-java).
 
+## Examples
+
+Examples are making basic analytics with Spark, nothing you could not do without a SQL database, except maybe, the prediction of the winner of the soccer World Cup 2022.
+
+## Datasets
 
 Datasets used in those labs are coming from:
 

@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * CSV ingestion in a dataframe.
+ * Analytics with World Cup 2018.
  * 
  * @author jgp
  */
@@ -31,8 +31,8 @@ public class ScoreStatisticsApp {
   private void start() {
     // Creates a session on a local master
     SparkSession spark = SparkSession.builder()
-        .appName("CSV to Dataset")
-        .master("local")
+        .appName("World Cup 2018 stats")
+        .master("local[*]")
         .getOrCreate();
 
     // Reads a CSV file with header, called books.csv, stores it in a dataframe
@@ -75,6 +75,7 @@ public class ScoreStatisticsApp {
     mostPlayedDf = mostPlayedDf.orderBy(mostPlayedDf.col("count").desc());
     mostPlayedDf.show(5);
     
+    System.out.println("Goals by country");
     Dataset<Row> goalsDf = combinedDf.groupBy("country").sum("score");
     goalsDf = goalsDf.orderBy(goalsDf.col("sum(score)").desc());
     goalsDf.show(5);
